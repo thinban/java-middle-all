@@ -38,7 +38,7 @@ public class CuratorTest {
         //RetryPolicy retryPolicy = new RetryNTimes(5, 1000);
         RetryPolicy retryPolicy = new RetryUntilElapsed(5000, 1000);
 //        CuratorFramework client = CuratorFrameworkFactory
-//                .newClient("192.168.1.105:2181",5000,5000, retryPolicy);
+//                .newClient("localhost:2181",5000,5000, retryPolicy);
         client = CuratorFrameworkFactory
                 .builder()
                 .connectString("localhost:2181")
@@ -134,7 +134,7 @@ public class CuratorTest {
             client.delete().guaranteed().deletingChildrenIfNeeded().withVersion(-1).forPath(path);
 
             //aclcreate
-            ACL aclIp = new ACL(ZooDefs.Perms.READ, new Id("ip", "192.168.1.105"));
+            ACL aclIp = new ACL(ZooDefs.Perms.READ, new Id("ip", "localhost"));
             ACL aclDigest = new ACL(ZooDefs.Perms.READ | ZooDefs.Perms.WRITE, new Id("digest", DigestAuthenticationProvider.generateDigest("jike:123456")));
             ArrayList<ACL> acls = new ArrayList<ACL>();
             acls.add(aclDigest);
