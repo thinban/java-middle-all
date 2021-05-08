@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="zookeeper" />
+        <module name="dataway" />
         <module name="swagger3" />
       </profile>
     </annotationProcessing>
